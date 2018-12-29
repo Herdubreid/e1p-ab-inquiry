@@ -1,2 +1,9 @@
-theme: minima
 title: Address Book Inquiry
+author: Finnur Bragason
+email: fbragason@outlook.com
+description: > # this means to ignore newlines until "twitter_username:"
+  An Oracle E1 Page Template  
+# social links
+github_username:  Herdubreid
+
+theme: minima
