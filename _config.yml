@@ -9,6 +9,6 @@ github_username:  Herdubreid
 linkedin_username: fin-bragason
 
 # No Header
-header_pages: []
+header_pages: ['']
 
-remote_theme: chesterhow/tale
+theme: minima
