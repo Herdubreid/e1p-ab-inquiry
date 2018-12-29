@@ -10,4 +10,4 @@ linkedin_username: fin-bragason
 # No Header
 header_pages: ['']
 
-theme: minima
+remote_theme: pmarsceill/just-the-docs
