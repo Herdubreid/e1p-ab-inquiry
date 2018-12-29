@@ -1,11 +1,11 @@
 title: Address Book Inquiry
 author: Finnur Bragason
 email: fbragason@outlook.com
-description: > # this means to ignore newlines until "twitter_username:"
+description: > # this means to ignore newlines until "aux_links:"
   An Oracle E1 Page Template  
 
 aux_links:
-  "Github":
+  "Visit on Github":
   - "//github.com/Herdubreid/e1p-ab-inquiry"
 
 remote_theme: pmarsceill/just-the-docs
