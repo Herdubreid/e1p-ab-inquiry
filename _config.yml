@@ -1,9 +1,10 @@
-title: Address Book Inquiry
+title: Oracle E1 Page Template
 author: Finnur Bragason
 email: fbragason@outlook.com
 description: > # this means to ignore newlines until "twitter_username:"
   An Oracle E1 Page Template  
 # social links
 github_username:  Herdubreid
+linkedin_username: fin-bragason
 
 theme: minima
