@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "twitter_username:"
   An Oracle E1 Page Template  
 
 aux_links:
-  "Oracle E1 Page Templates":
-  - "//github.io/e1p-templates"
+  "Github":
+  - "//github.com/Herdubreid/e1p-ab-inquiry"
 
 remote_theme: pmarsceill/just-the-docs
