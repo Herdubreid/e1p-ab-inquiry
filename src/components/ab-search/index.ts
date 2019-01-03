@@ -3,11 +3,11 @@ import './style.scss';
 import * as ko from 'knockout';
 import 'datatables.net-select-bs4';
 import { IStateParams } from '../../state';
-import { ViewModel as ChildVM } from '../ab-detail';
+import { ViewModel as ChildVM } from '../ab-detail/index';
 
 class ViewModel {
     $busy = ko.observable(false);
-    $keywords = ko.observable<string>(null);
+    $keywords = ko.observable<string>('');
     table: DataTables.Api;
     abSearchClick = () => {
         if (this.$keywords()) {
@@ -42,7 +42,7 @@ class ViewModel {
                     matchType: 'MATCH_ALL'
                 }
             };
-            callAISService(rq, DATA_SERVICE, response => {
+            callAISService(rq, DATA_SERVICE, (response: any) => {
                 this.params.state.rows =
                     response.fs_DATABROWSE_V0101.data.gridData.rowset;
                 this.table
@@ -68,7 +68,6 @@ class ViewModel {
                     width: '10%',
                     title: '',
                     orderable: false,
-                    data: null,
                     defaultContent: ''
                 },
                 { title: '&nbsp; Name', width: '60%', data: 'F0101_ALPH' },
@@ -88,7 +87,7 @@ class ViewModel {
             order: [[1, 'asc']]
         });
         this.table.on('init.dt', () => console.log('Draw!'));
-        this.table.on('user-select', (e, dt, type, cell) => {
+        this.table.on('user-select', (_1, _2, _3, cell) => {
             const node = $(cell.node());
             if (!this.$busy() && node.hasClass('details-control')) {
                 const row = cell.row(cell.index().row);
@@ -108,7 +107,7 @@ class ViewModel {
                 } else {
                     child(require('../ab-detail/template.html'));
                     const viewModel = new ChildVM(row.data());
-                    const s = viewModel.$busy.subscribe(_ => {
+                    const s = viewModel.$busy.subscribe((_:any) => {
                         $('div.content.slider', child()).slideDown();
                         s.dispose();
                     });

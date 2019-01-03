@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -9,9 +10,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            jquery: 'jquery/src/jquery',
-            jQuery: 'jquery/src/jquery',
-            Popper: 'pooper/src/popper'
+            jquery: 'jquery/src/jquery'
         },
         extensions: ['.tsx', '.ts', '.js']
     },
@@ -26,17 +25,16 @@ module.exports = {
             }
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            Popper: 'popper.js',
-            Util: 'exports-loader?Util!bootstrap/js/dist/util'
-        })
+            jquery: 'jquery',
+            Popper: ['popper.js', 'default']
+        }),
+        new ForkTsCheckerWebpackPlugin()
     ],
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
+                test: /\.(ts|js)x?$/,
+                use: 'babel-loader',
                 exclude: /node_modules/
             },
             {

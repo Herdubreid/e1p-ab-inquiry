@@ -6,7 +6,7 @@ export class ViewModel {
     $busy = ko.observable(true);
     $abDetail = ko.observable<any>(null);
     $whosWho = ko.observable<any[]>(null);
-    constructor(params) {
+    constructor(params:any) {
         const abDetail = {
             formServiceAction: 'R',
             formName: 'P01012_W01012A',
@@ -41,7 +41,7 @@ export class ViewModel {
             outputType: 'VERSION1',
             formRequests: [abDetail, whosWho]
         };
-        callAISService(br, BATCH_FORM_SERVICE, response => {
+        callAISService(br, BATCH_FORM_SERVICE, (response:any) => {
             this.$abDetail(response.fs_0_P01012_W01012A.data);
             this.$whosWho(response.fs_1_P0111_W0111A.data.gridData.rowset);
             this.$busy(false);
