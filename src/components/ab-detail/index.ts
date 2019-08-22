@@ -50,6 +50,6 @@ export class ViewModel {
 }
 
 ko.components.register('ab-detail', {
-    viewModel: ViewModel,
+    viewModel: { createViewModel: (params) => new ViewModel(params)  },
     template: require('./template.html')
 });

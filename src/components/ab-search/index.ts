@@ -122,6 +122,6 @@ class ViewModel {
 }
 
 ko.components.register('ab-search', {
-    viewModel: ViewModel,
+    viewModel: { createViewModel: (params) => new ViewModel(params) },
     template: require('./template.html')
 });
