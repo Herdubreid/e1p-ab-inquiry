@@ -4,8 +4,8 @@ import * as ko from 'knockout';
 
 export class ViewModel {
     $busy = ko.observable(true);
-    $abDetail = ko.observable<any>(null);
-    $whosWho = ko.observable<any[]>(null);
+    $abDetail = ko.observable<any>();
+    $whosWho = ko.observable<any[]>();
     constructor(params:any) {
         const abDetail = {
             formServiceAction: 'R',
@@ -50,6 +50,6 @@ export class ViewModel {
 }
 
 ko.components.register('ab-detail', {
-    viewModel: { createViewModel: (params) => new ViewModel(params)  },
+    viewModel: { createViewModel: (params: any) => new ViewModel(params)  },
     template: require('./template.html')
 });
